@@ -13,8 +13,8 @@ password: random password
 '
 while true; do
 	read -p "users>" input # Show "users" prompt and get input.
-	command=$(echo "$input" | awk '{print $1}') # Get the first user input.
-	name=$(echo "$input" | awk '{print $2}')
+	command=$(echo "$input" | awk '{print $1}') # Get the first word of the user input.
+	name=$(echo "$input" | awk '{print $2}') # Get the second word of the user input.
 	case $command in 
 		exit)
 			echo "Exiting user management..."
@@ -86,6 +86,12 @@ while true; do
 				echo "No user $name."
 			fi
 
+			;;
+		cmds)
+			printf "AVAILABLE COMMANDS:\n1. new <user> - Adds new user to the list, if it doesn't exist yet.\n2. del <user> - Deletes desired user from the list, if exists.\n3. find <user> - Finds a user and returns its username and password, if exists.\n4. list - Lists all active users.\n5. exit - Exists the program.\n"
+			;;
+		*)
+			echo "Wrong input. type 'cmds' for help"
 			;;
 	esac
 done
