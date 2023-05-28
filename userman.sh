@@ -28,9 +28,13 @@ while true; do
 			if [[ -e "$user_file" ]]; then
 				echo "$name user already exists."
 			else
-				echo "name: $name" >> $user_file
-				echo "password: $RANDOM" >> $user_file
-				echo "Created user $name"
+				if [[ "$name" == "" ]]; then
+					echo "You must enter a valid name."
+				else
+					echo "name: $name" >> $user_file
+					echo "password: $RANDOM" >> $user_file
+					echo "Created user $name"
+				fi
 			fi
 
 			;;
