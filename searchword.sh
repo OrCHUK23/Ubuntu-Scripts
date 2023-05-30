@@ -3,7 +3,6 @@
 Script searches for the word "PASSWORD" inside each file in current directory.
 If found, write its name to a reports file and delete it.
 '
-
 # Check if there's reports.txt file  already.
 if [[ -f reports.txt ]]; then
 	truncate -s 0 reports.txt # Clean its contents.
@@ -26,5 +25,5 @@ if [[ $line_number -gt 0 ]]; then
 	sleep 0.3
 	printf "Saving to 'reports.txt file...\n"
 else
-	printf "Found 0 matching files.\n"
+	printf "Found 0 matching files with word 'PASSWORD' in the title.\n"
 fi
